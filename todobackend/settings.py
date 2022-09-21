@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,12 +77,12 @@ WSGI_APPLICATION = 'todobackend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': "bmkpk2xufcki0cn5m4pb",
-        "USER": "ussiyjqszwiawjcs",
-        "PASSWORD": "fqFc3Ox3WAp4ywxEVd2f",
-        "HOST": "bmkpk2xufcki0cn5m4pb-mysql.services.clever-cloud.com",
-        "PORT": "3306"
+        'ENGINE': os.environ["DATABASE_ENGINE"],
+        'NAME': os.environ["DATABASE_NAME"],
+        "USER": os.environ["DATABASE_USER"],
+        "PASSWORD": os.environ["DATABASE_PASSWORD"],
+        "HOST": os.environ["DATABASE_HOST"],
+        "PORT": os.environ["DATABASE_PORT"]
     }
 }
 
